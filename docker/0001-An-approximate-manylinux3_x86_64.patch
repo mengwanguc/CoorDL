@@ -40,8 +40,8 @@ index 0c2f4b1..be290c1 100644
  ENV LANGUAGE en_US.UTF-8
 -ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 -ENV LD_LIBRARY_PATH /opt/rh/devtoolset-2/root/usr/lib64:/opt/rh/devtoolset-2/root/usr/lib:/usr/local/lib64:/usr/local/lib
-+ENV PATH /opt/rh/devtoolset-4/root/usr/bin:$PATH
-+ENV LD_LIBRARY_PATH /opt/rh/devtoolset-4/root/usr/lib64:/opt/rh/devtoolset-4/root/usr/lib:/usr/local/lib64:/usr/local/lib
++ENV PATH /opt/rh/devtoolset-7/root/usr/bin:$PATH
++ENV LD_LIBRARY_PATH /opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/usr/local/lib64:/usr/local/lib
  ENV PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
  
  COPY build_scripts /build_scripts
@@ -86,9 +86,9 @@ index 219703a..b05615b 100755
 -rm -f epel-release-5*.rpm
 +yum -y install centos-release-scl
 +yum-config-manager --enable rhel-server-rhscl-7-rpms
-+yum -y install devtoolset-4
-+sed -i 's| \. scl_source.*$| echo|' /opt/rh/devtoolset-4/enable
-+source /opt/rh/devtoolset-4/enable
++yum -y install devtoolset-7
++sed -i 's| \. scl_source.*$| echo|' /opt/rh/devtoolset-7/enable
++source /opt/rh/devtoolset-7/enable
  
  # Development tools and libraries
  yum -y install \
@@ -104,10 +104,10 @@ index 219703a..b05615b 100755
 -    devtoolset-2-gcc-c++ \
 -    devtoolset-2-gcc-gfortran \
 +    curl \
-+    devtoolset-4-binutils \
-+    devtoolset-4-gcc \
-+    devtoolset-4-gcc-c++ \
-+    devtoolset-4-gcc-gfortran \
++    devtoolset-7-binutils \
++    devtoolset-7-gcc \
++    devtoolset-7-gcc-c++ \
++    devtoolset-7-gcc-gfortran \
      diffutils \
      expat-devel \
      gettext \
